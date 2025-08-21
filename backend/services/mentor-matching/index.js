@@ -51,9 +51,11 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Mentor Matching Service running on port ${PORT}`);
-});
+// Start server only if this file is run directly
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Mentor Matching Service running on port ${PORT}`);
+  });
+}
 
 module.exports = app;
